@@ -190,9 +190,9 @@ require('lazy').setup({
   },
   {
     'rebelot/kanagawa.nvim',
-    opts = {
-
-    }
+  },
+  {
+    'nyoom-engineering/oxocarbon.nvim',
   },
   {
     -- Set lualine as statusline
@@ -683,4 +683,7 @@ cmp.setup {
 -- vim: ts=2 sts=2 sw=2 et
 
 vim.wo.relativenumber = true
-vim.cmd("colorscheme kanagawa-dragon")
+require('kanagawa').setup({
+  transparent = true
+})
+vim.cmd("colorscheme kanagawa")
