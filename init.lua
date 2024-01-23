@@ -43,6 +43,8 @@ P.S. You can delete this when you're done too. It's your config now :)
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
+vim.g.loaded_netrw       = 1
+vim.g.loaded_netrwPlugin = 1
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    https://github.com/folke/lazy.nvim
@@ -254,6 +256,17 @@ require('lazy').setup({
   },
   {
     'nvim-tree/nvim-web-devicons'
+  },
+  {
+    "nvim-tree/nvim-tree.lua",
+    version = "*",
+    lazy = false,
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
+    config = function()
+      require("nvim-tree").setup {}
+    end,
   }
 
 
@@ -683,7 +696,5 @@ cmp.setup {
 -- vim: ts=2 sts=2 sw=2 et
 
 vim.wo.relativenumber = true
-require('kanagawa').setup({
-  transparent = true
-})
-vim.cmd("colorscheme kanagawa")
+require('kanagawa').setup()
+vim.cmd("colorscheme kanagawa-dragon")
